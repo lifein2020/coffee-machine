@@ -1,0 +1,51 @@
+.coffee-machine {
+  border: 2px solid black;
+  margin-top: 75px;
+} /* обращаемся к элементам в файле index через классы */
+.coffee-list {
+  background-image: url('img/background.jpg');
+  background-size: cover;
+}
+
+.coffee-item { /* обращаемся к картинку через контекстный селектор */
+  background: rgba(0, 0, 0, 0.7);
+  margin: 15px 0;
+  border-radius: calc(75px / 2); /* скругление кнопки вокруг катринки */
+  cursor: pointer; /* палец при наведении на кнопку */
+}
+
+.coffee-item:hover{ /* псевдокласс */
+  background: rgba(50, 50, 50, 0.7); /* светлый фон кнопок при наведении пальца */
+}
+
+.coffee-item img { 
+  width: 75px;
+  height: 75px;
+  background: white;
+  border-radius: 50%;
+}
+
+.coffee-item span { /* надписи делаем белыми с отступом */
+  color: white;
+  margin-left: 15px;
+}
+
+.display {
+  background: lightgreen;
+  border: 2px solid darkgreen;
+  padding: 15px;
+}
+
+.coffee-cup img {
+  width% 100%;
+}
+
+.change-box{
+  border: 2px solid black;
+  background: darkgrey;
+  height: 100px;
+}
+
+.coffee-oper {
+  background: lightgrey;
+}
