@@ -31,7 +31,7 @@
             <span>Латэ - 128 руб.</span>
           </div>
         </div>
-        <div class="col-6 coffee-oper">
+        <div class="col-6 coffee-oper bg-lightgrey">
           <div class="row p-3"> <!-- p-3 чтобы не прилипал к краю-->
             <div class="col-6">
               <div class="display"> <!-- делаем дисплей -->
@@ -41,13 +41,13 @@
                   <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
                   
                 </div>
-                <div class="coffee-cup">
+              </div>
+              <div class="coffee-cup">
                   <img src="img/americano.png" alt="">
-                </div>
               </div>
-              </div>
+            </div>
             <div class="col-6">
-              <div class="input-group mb-3">
+              <div class="input-group mb-3"> <!-- далее copy из butstrap-4 ->Компоненты ->Группы ввода -> Базовые примеры-->
                 <input type="text" class="form-control" placeholder="Баланс" aria-label="Баланс" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                   <span class="input-group-text" id="basic-addon2">руб.</span>
