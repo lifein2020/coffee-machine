@@ -117,7 +117,7 @@ displayText.innerText = "<b>Готовим кофе</b>"; // меняем сод
 
 
 
-let interval = setInterval(trashConsole, 1000);
+/* let interval = setInterval(trashConsole, 1000);
 let changeButton = document.querySelector(".btn"); // нашли кнопку
 changeButton.onclick = function () { // повесили на кнопку событие
   clearInterval(interval); //при нажатии на кнопку очищается интервал и соотв. перестает работать
@@ -125,7 +125,7 @@ changeButton.onclick = function () { // повесили на кнопку со�
 
 function trashConsole(){
   console.log(Math.random());
-} 
+} */
 
 
 
