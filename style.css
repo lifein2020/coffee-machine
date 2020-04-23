@@ -54,3 +54,12 @@
 .coffee-oper {
   background: lightgrey;
 }
+
+.bills { /* сдвинули контейнер в котором лежат купюры */
+  margin-left: 10%;
+}
+
+.bills img { /* расстояние между контейнерами*/
+  width: 20%;
+  margin-left: 5px;
+}
