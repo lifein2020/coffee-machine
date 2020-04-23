@@ -1,7 +1,8 @@
 "use strict";
 let state = "waiting"; //глобальная переменная
-let progressBar = document.querySelector(".progress-bar");
 
+let progressBar = document.querySelector(".progress-bar");
+let balanceInput = document.querySelector("input[placeholder='Баланс']");
 let cupImg = document.querySelector(".coffee-cup img"); //глобальная переменная, ищем кружку
 cupImg.onclick = takeCoffee; //  вешаем на кружку событие - функцию нажатия на кофе, takeCoffee - тело функции, саму функцию опишем ниже
 
@@ -9,7 +10,6 @@ function buyCoffee(name, price, element) {
   if (state != "waiting") {
     return;
   }
-  let balanceInput = document.querySelector("input[placeholder='Баланс']");
   
   if (+balanceInput.value < price) {
     changeDisplayText("Недостаточно средств");
@@ -96,8 +96,12 @@ function takeMoney(event) {
     }
     
     bill.onmouseup = function () { // отжатие мыши
-      window.onmousemove = null; // чтобы купюра не двигилась за мышью
-      console.log(inAtm(bill) );
+      window.onmousemove = null; // чтобы купюра отлипла от мыши при движении
+      if ( inAtm(bill) ) { // если купюра попала в atm
+        let billCost = +bill.getAttribute('cost');
+        balanceInput.value = +balanceInput.value + billCost;
+        bill.remove();
+      }
     }
     
 }
@@ -130,3 +134,48 @@ function inAtm(bill) {
 }
 
 // Как отключить стандартное браузерное событие(призрак купюры), которое висит onmousedown. Любое событие (onmousedown и пр.) автоматически передает в функцию первым параметром event-событие. Чтобы его отловить, укажем в скобках. Т.е. любое событие содержит в себе по умолчанию event.
+
+// --------Сдача--------
+
+let changeButton = document.querySelector('.change-btn');
+/*changeButton.onclick = function() {
+  takeChange();
+} */
+changeButton.onclick = takeChange;
+
+function takeChange() {
+  tossCoin("10");
+}
+
+function tossCoin(cost) { //вываливает монетки в div с классом .change-box
+  let changeBox = document.querySelector(".change-box"); 
+  changeBox.style.position = "relative";
+  
+  let changeBoxCoords = changeBox.getBoundingClientRect();
+  let randomWidth = getRandomInt(0, changeBoxCoords.width - 50);
+  let randomHeight = getRandomInt(0, changeBoxCoords.height - 50);// 50 ширина картинки, чтобы она попадала в ширину картинки
+  console.log(randomWidth, randomHeight);
+  
+  let coin = document.createElement("img"); //создает элемент тэга(img), который вписываем в параметры
+  coin.setAttribute('src', 'img/10rub.png');
+  coin.style.width = "50px";
+  coin.style.height = "50px";
+  coin.style.position = "absolute";
+  coin.style.top = randomHeight + "px";
+  coin.style.left = randomWidth + "px";
+  
+  changeBox.append(coin); // append - добавляем элемент coin в конец предыдущего(родительского) элемента changeBox. Из учебника Документ -> 1.7 Изменение документа
+  //changeBox.prepend(coin);//Добавлям в начало
+  //changeBox.before(coin); // перед элементом
+  //changeBox.after(coin); // после элемента
+  //changeBox.replaceWith(coin); //заменяет элемент
+  
+}
+
+//https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random :
+function getRandomInt(min, max) { 
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+}
+
