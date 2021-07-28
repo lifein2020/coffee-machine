@@ -1,4 +1,4 @@
 # coffee-machine
-Кофе-машина группы 380
+Кофе-машина
 
 Стэк HTML CSS Bootstrap JS
