@@ -2,7 +2,7 @@
 
 ### An interactive game that simulates a coffee machine.
 
-##GitHub Pages## 
+## GitHub Pages ## 
 https://lifein2020.github.io/coffee-machine/
 ## Functionality: ##
 * selection of coffee by pressing the corresponding icon
