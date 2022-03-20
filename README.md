@@ -19,4 +19,4 @@ https://lifein2020.github.io/coffee-machine/
 * Java Script
 
 ## Plans for finalizing the project: ##
-improve styling, improve style, apply BEM technology, make HTML tags suitable for SEO
+improve styling, apply BEM technology, make HTML tags suitable for SEO
