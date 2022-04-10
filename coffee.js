@@ -2,16 +2,20 @@
 //global variables
 let state = "waiting"; 
 
+let displayText = document.querySelector('.display-text');
 let progressBar = document.querySelector(".progress-bar");
 let balanceInput = document.querySelector("input[placeholder='Balance sheet']");
 let cupImg = document.querySelector(".coffee-cup img"); //find cup
 cupImg.onclick = takeCoffee; //  hang an event on a cup - the function of clicking on coffee
 
+function changeDisplayText(text) {
+  displayText.innerHTML = text; // we access the internal content of the displayText variable and write the text parameter there
+}
+
 function buyCoffee(name, price, element) {
   if (state != "waiting") {
     return;
   }
-  
   if (+balanceInput.value < price) {
     changeDisplayText("Insufficient funds");
     balanceInput.style.background = "red" 
@@ -59,10 +63,7 @@ function takeCoffee() {
   progressBar.style.width = 0;
 } 
 
-function changeDisplayText(text) {
-  let displayText = document.querySelector('.display-text');
-  displayText.innerHTML = text; // we access the internal content of the displayText variable and write the text parameter there
-}
+
 
 // ---------- Banknotes ---------
 
@@ -126,6 +127,7 @@ function inAtm(bill) {
       && billLeftTopCorner.y > atmLeftTopCorner.y
       && billLeftTopCorner.y < atmLeftBottomCorner.y
     ) {
+      changeDisplayText("Select coffee");
       return true;
     } else {
       return false;
